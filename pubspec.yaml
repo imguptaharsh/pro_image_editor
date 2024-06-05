@@ -60,3 +60,8 @@ flutter:
    - family: ProImageEditorIcons
      fonts:
       - asset: lib/fonts/ProImageEditorIcons.ttf
+  
+   - family: CallingCode
+     fonts:
+      - asset: lib/fonts/CallingCode-Regular.ttf
+

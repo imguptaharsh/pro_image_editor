@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pro_image_editor/models/editor_configs/pro_image_editor_configs.dart';
 
-import 'utils/whatsapp_appbar_button_style.dart';
+// import 'utils/whatsapp_appbar_button_style.dart';
 
 /// Represents the app bar for the WhatsApp theme.
 class WhatsAppAppBar extends StatefulWidget {
@@ -66,12 +66,11 @@ class _WhatsAppAppBarState extends State<WhatsAppAppBar> {
             ? const SizedBox.shrink()
             : Row(
                 children: [
-                  IconButton(
-                    tooltip: widget.configs.i18n.cancel,
-                    onPressed: widget.onClose,
-                    icon: Icon(widget.configs.icons.closeEditor),
-                    style: whatsAppButtonStyle,
+                  GestureDetector(
+                    onTap: widget.onClose,
+                    child: Icon(widget.configs.icons.closeEditor, size: 35),
                   ),
+
                   const Spacer(),
                   gap,
                   AnimatedSwitcher(
@@ -84,48 +83,106 @@ class _WhatsAppAppBarState extends State<WhatsAppAppBar> {
                       ),
                     ),
                     child: widget.canUndo
-                        ? IconButton(
-                            tooltip: widget.configs.i18n.undo,
-                            onPressed: widget.onTapUndo,
-                            icon: Icon(widget.configs.icons.undoAction),
-                            style: whatsAppButtonStyle,
+                        ? GestureDetector(
+                            onTap: widget.onTapUndo,
+                            child: Container(
+                              width: 40,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.white,
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              child: Icon(widget.configs.icons.undoAction,
+                                  size: 22),
+                            ),
                           )
                         : const SizedBox.shrink(),
                   ),
-                  gap,
-                  IconButton(
-                    tooltip: widget
-                        .configs.i18n.cropRotateEditor.bottomNavigationBarText,
-                    onPressed: widget.onTapCropRotateEditor,
-                    icon: Icon(
-                        widget.configs.icons.cropRotateEditor.bottomNavBar),
-                    style: whatsAppButtonStyle,
+                  const SizedBox(
+                    width: 12,
                   ),
-                  gap,
-                  IconButton(
-                    tooltip: widget
-                        .configs.i18n.stickerEditor.bottomNavigationBarText,
-                    onPressed: widget.onTapStickerEditor,
-                    key: const ValueKey('whatsapp-open-sticker-editor-btn'),
-                    icon: Icon(widget.configs.icons.stickerEditor.bottomNavBar),
-                    style: whatsAppButtonStyle,
+                  GestureDetector(
+                    onTap: widget.onTapCropRotateEditor,
+                    child: Container(
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                      child: const Icon(
+                        Icons.crop,
+                        // weight: 200,
+                        color: Colors.white,
+                        size: 22,
+                      ),
+                    ),
                   ),
-                  gap,
-                  IconButton(
-                    tooltip:
-                        widget.configs.i18n.textEditor.bottomNavigationBarText,
-                    onPressed: widget.onTapTextEditor,
-                    icon: Icon(widget.configs.icons.textEditor.bottomNavBar),
-                    style: whatsAppButtonStyle,
+                  const SizedBox(
+                    width: 12,
                   ),
-                  gap,
-                  IconButton(
-                    tooltip:
-                        widget.configs.i18n.paintEditor.bottomNavigationBarText,
-                    onPressed: widget.onTapPaintEditor,
-                    icon:
-                        Icon(widget.configs.icons.paintingEditor.bottomNavBar),
-                    style: whatsAppButtonStyle,
+                  GestureDetector(
+                    onTap: widget.onTapStickerEditor,
+                    child: Container(
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                      child: Icon(
+                          widget.configs.icons.stickerEditor.bottomNavBar,
+                          size: 22),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 12,
+                  ),
+                  GestureDetector(
+                    onTap: widget.onTapTextEditor,
+                    child: Container(
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                      child: Icon(widget.configs.icons.textEditor.bottomNavBar,
+                          size: 22),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 12,
+                  ),
+                  // gap,
+                  GestureDetector(
+                    onTap: widget.onTapPaintEditor,
+                    child: Container(
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                      child: Icon(
+                          widget.configs.icons.paintingEditor.bottomNavBar,
+                          size: 22),
+                    ),
                   ),
                 ],
               );

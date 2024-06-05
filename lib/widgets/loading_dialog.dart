@@ -79,13 +79,10 @@ class LoadingDialog {
                 Expanded(
                   child: Text(
                     _msg,
-                    style: platformTextStyle(
-                      context,
-                      designMode,
-                    ).copyWith(
-                      fontSize: 16,
-                      color: imageEditorTheme.loadingDialogTheme.textColor,
-                    ),
+                    style: const TextStyle(
+                        fontSize: 20,
+                        fontFamily: 'Calling Code',
+                        color: Colors.green),
                     textAlign: TextAlign.start,
                   ),
                 ),
